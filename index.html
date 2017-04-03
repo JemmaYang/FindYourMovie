@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="resources/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="resources/css/jquery-ui-1.10.2.custom.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="style.css" media="screen" rel="stylesheet" type="text/css">
+    <!-- <script src="resources/js/jquery-3.2.0.min.js" type="text/javascript"></script> -->
+    <script src="resources/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="resources/js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
+    
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+    <link href="https://cdn.bootcss.com/bootstrap-select/1.12.1/css/bootstrap-select.min.css" rel="stylesheet">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+    
+
+    <script src="resources/js/filter.js" type="text/javascript"></script>
+    <script src="data/movies.js" type="text/javascript"></script>
+    <script src="main.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    
+    <!-- Side Bar -->
+    <nav class="sidebar col-md-3">
+      <h4 >Filter</h4>
+     
+      <div>
+          <label class="sr-only" for="searchbox">Search</label>
+          <input type="text" class="form-control" id="searchbox" placeholder="Search &hellip;" autocomplete="off">
+          <span class="glyphicon glyphicon-search search-icon"></span>
+      </div>
+        <hr>
+      <div class="well">
+            <fieldset id="genre_criteria">
+                <legend>Genre</legend>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="All" id="All Movies">
+                    <span>All Movies</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="Action">
+                    <span>Action<span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="Adventure">
+                    <span>Adventure</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="Animated">
+                    <span>Animated</span> 
+                   </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="Biography">
+                    <span>Biography</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Comedy">
+                    <span>Comedy</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Documentary">
+                    <span>Documentary</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Drama">
+                    <span>Drama</span>
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Horror">
+                    <span>Horror</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Romance">
+                    <span/>Romance</span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Sci-Fi & Fantasy">
+                    <span>Sci-Fi & Fantasy</span> 
+                  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Thriller">
+                    <span>Thriller</span> 
+                  </label>
+                </div>   
+            </fieldset>
+        </div>
+
+        <div class="well">
+            <fieldset id="runtime_criteria">
+                <legend>Year</legend> <span id="runtime_range_label" class="slider-label">2000 - 2017</span>
+                <div id="runtime_slider" class="slider">
+                </div>
+                <input type="hidden" id="runtime_filter" value="2000-2017">
+            </fieldset>
+        </div>
+
+        <div class="well">
+            <fieldset id="rating_criteria">
+                <legend>IMDb Rating</legend> <span id="rating_range_label" class="slider-label">0 - 10</span>
+                <div id="rating_slider" class="slider">
+                </div>
+                <input type="hidden" id="rating_filter" value="0-10">
+            </fieldset>
+        </div>
+
+        <div class="well">
+           <fieldset id="rating_criteria">
+           <legend class="control-label">MPAA Rating</legend>
+             
+            <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple>
+                <option value="0">ALL</option>
+                <option value="1">G</option>
+                <option value="2">NC-17</option>
+                <option value="3">PG</option>
+                <option value="4">PG-13</option>
+                <option value="5">R</option>
+                <option value="6">Unrated</option>
+            </select>
+            </fieldset>
+        </div>
+
+        <div class="well">
+           <fieldset id="rating_criteria">
+        <legend class="control-label">Language</legend>
+             
+            <select id="MPAA" class="selectpicker show-menu-arrow form-control" multiple>
+                <option value="0">Chinese</option>
+                <option value="1">English</option>
+                <option value="2">French</option>
+                <option value="3">German</option>
+                <option value="4">Greek</option>
+                <option value="5">Italian</option>
+                <option value="6">Japanese</option>
+                <option value="6">Korean</option>
+                <option value="6">Russian</option>
+                <option value="6">Spanish</option>
+                <option value="6">Swedish</option>
+                <option value="6">Other languages</option>
+            </select>
+            </fieldset>
+        </div>
+        
+       <a href="#" class="btn btn-info" role="button">SUMBIT</a>
+       <a href="#" class="btn btn-info" role="button">CLEAR</a>
+
+    </nav> 
+     <!-- End Side Bar -->
+
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-9"><h1 class="title">Find Your Movie</h1></div>
+        <a href="signed.html" class="btn btn-info singIn" role="button">Sign In/UP</a>
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-6">
+          <h4>Most Popular Movies</h4>
+        </div>
+        <div class="col-sm-6">
+          <div class="showNum" align="right">Showing 50 Titles</div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+              <img class="poster" src="resources/images/beauty.jpg">
+              <h4>Beauty and Beast</h4>
+              <div>1 (no change)</div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+             <img class="poster" src="resources/images/power.jpg">
+              <h4>Power Rangers</h4>
+              <div>2 (<span class="high"> &#8593;</span> 7)</div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+             <img class="poster" src="resources/images/logan.jpg">
+              <h4>Logan</h4>
+              <div>3 (<span class="low"> &#x2193;</span> 1)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+              <img class="poster" src="resources/images/life.jpg">
+              <h4>Life</h4>
+              <div>4 (<span class="high"> &#8593; </span>27)</div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+             <img class="poster" src="resources/images/kong.jpg">
+              <h4>Kong: Skull Island</h4>
+              <div>5 (<span class="low"> &#x2193;</span> 2)</div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+             <img class="poster" src="resources/images/getout.jpg">
+              <h4>Get Out</h4>
+              <div>6 (<span class="low"> &#x2193;</span> 2)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+              <img class="poster" src="resources/images/rogue.jpg">
+              <h4>Rogue One</h4>
+              <div>7 (<span class="low"> &#x2193;</span> 6)</div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+             <img class="poster" src="resources/images/sing.jpg">
+              <h4>Sing</h4>
+              <div>8 (<span class="low"> &#x2193;</span> 1)</div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="moviesGrid">
+             <img class="poster" src="resources/images/baywatch.jpg">
+              <h4>Baywatch</h4>
+              <div>9 (<span class="low"> &#x2193;</span> 8)</div>
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+      <div class="pagination">
+         <a href="#">&laquo;</a>
+         <a href="#">1</a>
+         <a href="#">2</a>
+         <a href="#">3</a>
+         <a href="#">4</a>
+         <a href="#">5</a>
+         <a href="#">6</a>
+         <a href="#">&raquo;</a>
+      </div>
+
+    </div>
+  
+  </body>
+</html>
